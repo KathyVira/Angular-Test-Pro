@@ -1,0 +1,37 @@
+<app-page-header [pageHeader]='pageHeader' [pageDescription]='pageDescription' [pageIcon]='pageIcon'>
+</app-page-header>
+
+<!-- <input type="button" value="press me!" class="btn btn-success" (click)='pressMe()'> -->
+<a href="" routerLink='/customer/add' class='btn btn-success'>+add new customer</a>
+
+
+<div class="container " *ngIf="contacts;else noContacts">
+  <div class="row mx-md-n6">
+    <div *ngFor="let contact of contacts;" class="p-2">
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="assets/img/{{contact.avatar}}" alt="Avatar" style=" width:300px; height:200px;">
+          </div>
+          <div class="flip-card-back">
+            <h1>{{contact.name|uppercase}}</h1>
+            <p>{{contact.email}}</p>
+            <p>{{contact.address}}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<ng-template #noImg height="50px">
+  picture is not present
+</ng-template>
+
+<ng-template #noContacts>
+  There is no contacts in this data!
+</ng-template>

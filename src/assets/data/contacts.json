@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Shira Istael",
+    "age": "30",
+    "address": "ariel",
+    "email": "shira@gmail.com",
+    "avatar": "a-01.jpg"
+  },
+  {
+    "name": "Shirly Levi",
+    "age": "36",
+    "address": "tel-aviv",
+    "email": "Shirly@gmail.com",
+    "avatar": "a-06.jpg"
+  },
+  {
+    "name": "Michal Kohen",
+    "age": "10",
+    "address": "yavne",
+    "email": "Michal@gmail.com",
+    "phones": ["0545555555", "0522223331"],
+    "avatar": "a-03.jpg"
+  },
+  {
+    "name": "Nir Fridman",
+    "age": "5",
+    "address": "eilat",
+    "email": "Nir@gmail.com",
+    "phones": ["0542222222", "0522223331"],
+    "avatar": "a-04.jpg"
+  },
+  {
+    "name": "Shalom Rada",
+    "age": "5",
+    "address": "eilat",
+    "email": "Shalom@gmail.com",
+    "phones": ["0542222222", "0522223331"],
+    "avatar": "a-05.jpg"
+  },
+  {
+    "name": "Boaz Sharaby",
+    "age": "5",
+    "address": "eilat",
+    "email": "Boaz@gmail.com",
+    "phones": ["0542222222", "0522223331"],
+    "avatar": "a-02.jpg"
+  }
+]

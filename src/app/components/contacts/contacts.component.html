@@ -1,0 +1,49 @@
+<app-page-header [pageHeader]='pageHeader' [pageDescription]='pageDescription' [pageIcon]='pageIcon'>
+</app-page-header>
+
+
+<div class="" *ngIf="contacts;else noContacts">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Avatar</th>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">Address</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let contact of contacts; let i = index">
+          <td scope="col">{{i+1}}</td>
+          <td scope="col">
+            <img src="assets/img/{{contact.avatar}}" alt="avatar image" width="50px" *ngIf="contact.avatar;else noImg">
+          </td>
+
+          <td scope="col">{{contact.name|uppercase}}</td>
+          <td scope="col">{{contact.age}}</td>
+          <td scope="col">{{contact.address}}</td>
+          <td scope="col">{{contact.email}}</td>
+          <td scope="col">
+            <ul>
+              <li *ngFor="let phone of contact.phones">
+                {{phone}}
+              </li>
+            </ul>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+<ng-template #noImg height="50px">
+  picture is not present
+</ng-template>
+<ng-template #noContacts>
+  There is no contacts in this data!
+</ng-template>

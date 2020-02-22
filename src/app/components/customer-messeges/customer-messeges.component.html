@@ -1,0 +1,30 @@
+<app-page-header [pageHeader]='pageHeader' [pageDescription]='pageDescription' [pageIcon]='pageIcon'>
+</app-page-header>
+<!-- <ul>
+  <li *ngFor='let mess of messeges'>
+    {{mess.email}}
+  </li>
+</ul> -->
+<div class="">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Body</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let mess of messeges'>
+          <td>
+            {{mess.email}}
+          </td>
+          <td>
+            {{mess.body}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
