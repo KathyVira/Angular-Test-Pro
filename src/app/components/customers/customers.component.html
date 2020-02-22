@@ -3,28 +3,78 @@
 
 <!-- <input type="button" value="press me!" class="btn btn-success" (click)='pressMe()'> -->
 <a href="" routerLink='/customer/add' class='btn btn-success'>+add new customer</a>
+<br><br>
+<!--
+<div class="row">
+  <ul>
+      <li *ngFor='let customer of customers'>
+          <span >
+              {{customer.name}}
+          </span>
+      </li>
+  </ul>
+</div>  -->
 
 
-<div class="container " *ngIf="contacts;else noContacts">
+<!-- <div class="container ">
   <div class="row mx-md-n6">
-    <div *ngFor="let contact of contacts;" class="p-2">
+    <div *ngFor="let customer of customers;" class="p-2">
 
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            <img src="assets/img/{{contact.avatar}}" alt="Avatar" style=" width:300px; height:200px;">
+            <img src="https://picsum.photos/200" alt="Avatar">
+
+            src="assets/img/{{contact.avatar}}"
+            style=" width:300px; height:200px;"
           </div>
           <div class="flip-card-back">
-            <h1>{{contact.name|uppercase}}</h1>
-            <p>{{contact.email}}</p>
-            <p>{{contact.address}}</p>
+            <h1>{{customer.name}}</h1>
+            <p>{{customer.email}}</p>
+            <p>{{customer.address}}</p>
+            <p class="row mx-md-n6">
+
+              <input (ngSubmit)='ondelete(customer.id)' type="delete" class="btn btn-primary" name="delete"
+                id="{{customer.id}}" value="Delete">
+              <input (ngSubmit)='onupdate(customer.id)' type="update" class="btn btn-primary" name="update"
+                id="{{customer.id}}" value="Update">
+            </p>
           </div>
+          <input type="button" value="Delete">
         </div>
       </div>
 
     </div>
   </div>
-</div>
+</div -->
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Address</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers; let x = index">
+      <th scope="row"> {{ x + 1 }}</th>
+      <td>{{customer.name}}</td>
+      <td>{{customer.email}}</td>
+      <td>{{customer.address}}</td>
+
+      <td><input type="update" class="btn btn-success" name="update" id="{{customer.id}}" value="Update"
+          routerLink="/customer/update"></td>
+          
+      <td><input type="delete" class="btn btn-success" name="delete" id="{{customer.id}}" value="Delete"
+          (click)="confirmDelete(customer.id)"></td>
+    </tr>
+
+  </tbody>
+</table>
 
 
 

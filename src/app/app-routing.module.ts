@@ -7,17 +7,18 @@ import { ContactsComponent } from "./components/contacts/contacts.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { CustomerMessegesComponent } from "./components/customer-messeges/customer-messeges.component";
 import { CustomerAddComponent } from "./components/customer-add/customer-add.component";
-
+import { SingInComponent } from "./components/sing-in/sing-in.component";
+import { UpdateCustomerComponent } from "./components/update-customer/update-customer.component";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "customers", pathMatch: "full" },
+  { path: "singin", component: SingInComponent },
   { path: "customers", component: CustomersComponent },
   { path: "customers/add", component: CustomersComponent },
   { path: "contacts", component: ContactsComponent },
   { path: "messeges", component: CustomerMessegesComponent },
-  { path: "customer/add", component: CustomerAddComponent},
-
-
+  { path: "customer/add", component: CustomerAddComponent },
+  { path: "customer/update", component: UpdateCustomerComponent },
 
   { path: "**", component: PageNotFoundComponent }
 ];

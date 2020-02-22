@@ -1,6 +1,10 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 
 import { AppComponent } from "./app.component";
 import { TopNavComponent } from "./components/top-nav/top-nav.component";
@@ -14,6 +18,12 @@ import { PageHeaderComponent } from "./components/page-header/page-header.compon
 import { CustomerMessegesComponent } from './components/customer-messeges/customer-messeges.component';
 import { CustomerAddComponent } from './components/customer-add/customer-add.component';
 import { FormsModule } from '@angular/forms';
+import{ AngularFireAuthModule } from '@angular/fire/auth';
+import { SingInComponent } from './components/sing-in/sing-in.component';
+import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -26,10 +36,21 @@ import { FormsModule } from '@angular/forms';
     PageNotFoundComponent,
     PageHeaderComponent,
     CustomerMessegesComponent,
-    CustomerAddComponent
+    CustomerAddComponent,
+    SingInComponent,
+    UpdateCustomerComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule, 
+    AppRoutingModule, 
+    HttpClientModule, 
+    FormsModule, 
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule
+  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule {}

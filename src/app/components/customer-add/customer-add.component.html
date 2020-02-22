@@ -2,10 +2,10 @@
 </app-page-header>
 <!-- https://www.50webs.com/ free web hosting -->
 <!-- <input type="text" #foo (keyup)='test($event)'> -->
-
+<!-- https://console.firebase.google.com/u/1/project/crm-katy/database/crm-katy/data -->
 
 <form #addCustomerForm='ngForm' (ngSubmit)='onsubmit(addCustomerForm)' novalidate='novalidate' autocomplete="off">
-  Full name:<br>
+  First name:<br>
   <input type="text" name="name" ngModel required minlength="4" #fnf="ngModel">
   <br>
   <span style="color:red" *ngIf='fnf.invalid && fnf.touched'>min of 4 chars</span>
@@ -13,23 +13,29 @@
 
   Email:<br>
   <input type="text" name="email" ngModel required minlength="4" #ema="ngModel">
-  <br>
   <span style="color:red" *ngIf='ema.invalid && ema.touched'>min of 4 chars</span>
-  <br>
+  <br><br>
   Address:<br>
-  <input type="text" name="address" ngModel required minlength="4" #adr="ngModel">
-  <br>
-  <span style="color:red" *ngIf='adr.invalid && adr.touched'>min of 4 chars</span>
-  <br>
-  <!-- Last name: {{test}}<br>
-  <input type="text" name="lastname" ngModel required minlength="4">
-  <br><br> -->
+  <input type="text" name="address" ngModel minlength="4" #addr="ngModel" required>
+  <span style="color:red" *ngIf='addr.invalid && addr.touched'>min of 4 chars</span>
+  <br><br>
 
-  in github
+
 
   <input [disabled]="!addCustomerForm.form.valid" type="submit" name="submit" value="Submit" class="btn btn-primary">
 
 
 </form>
 
-<!-- <input type="text" [(ngModel)]='test' (keyup)='showthistest()' /><br> -->
+<!-- <input type="text" [(ngModel)]= -->
+
+<!-- <div class="row">
+      <ul>
+<li *ngFor='let customer of customers'>
+
+    <span >
+        {{customer.name}}
+    </span>
+</li>
+        </ul>
+  </div> -->
