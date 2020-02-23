@@ -1,0 +1,27 @@
+<app-page-header [pageHeader]='pageHeader' [pageDescription]='pageDescription' [pageIcon]='pageIcon'>
+</app-page-header>
+
+<form #addUserForm='ngForm' (ngSubmit)='login(addUserForm)' novalidate='novalidate' autocomplete="off">
+
+  Email:<br>
+  <input type="text" name="email" ngModel required minlength="4" #ema="ngModel">
+  <span style="color:red" *ngIf='ema.invalid && ema.touched'>min of 4 chars</span>
+  <br><br>
+  Password:<br>
+  <input type="text" name="passwordUser" ngModel minlength="4" #pasUser="ngModel" required>
+  <span style="color:red" *ngIf='pasUser.invalid && pasUser.touched'>min of 4 chars</span>
+  <br><br>
+
+
+
+  <input [disabled]="!addUserForm.form.valid" type="submit" name="submit" value="Submit" class="btn btn-primary">
+
+
+</form>
+
+<p *ngIf='isLodegIn'>loged in</p>
+
+<ng-template #notLogedIn>
+
+  <p>not loged in</p>
+</ng-template>

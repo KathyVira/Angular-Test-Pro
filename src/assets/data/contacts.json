@@ -1,48 +1,31 @@
-[
-  {
-    "name": "Shira Istael",
-    "age": "30",
+[{
+    "name": "niko virab",
+    "age": "36",
     "address": "ariel",
-    "email": "shira@gmail.com",
-    "avatar": "a-01.jpg"
+    "email": "niko@gmail.com",
+    "avatar": "avatar.jpg"
   },
   {
-    "name": "Shirly Levi",
+    "name": "katy hodos",
     "age": "36",
     "address": "tel-aviv",
-    "email": "Shirly@gmail.com",
-    "avatar": "a-06.jpg"
+    "email": "katy@gmail.com",
+    "avatar": "billie.jpeg"
   },
   {
-    "name": "Michal Kohen",
+    "name": "batel shim",
     "age": "10",
     "address": "yavne",
-    "email": "Michal@gmail.com",
+    "email": "batel@gmail.com",
     "phones": ["0545555555", "0522223331"],
-    "avatar": "a-03.jpg"
+    "avatar": "avatar.jpg"
   },
   {
-    "name": "Nir Fridman",
+    "name": "tony vira",
     "age": "5",
     "address": "eilat",
-    "email": "Nir@gmail.com",
+    "email": "tony@gmail.com",
     "phones": ["0542222222", "0522223331"],
-    "avatar": "a-04.jpg"
-  },
-  {
-    "name": "Shalom Rada",
-    "age": "5",
-    "address": "eilat",
-    "email": "Shalom@gmail.com",
-    "phones": ["0542222222", "0522223331"],
-    "avatar": "a-05.jpg"
-  },
-  {
-    "name": "Boaz Sharaby",
-    "age": "5",
-    "address": "eilat",
-    "email": "Boaz@gmail.com",
-    "phones": ["0542222222", "0522223331"],
-    "avatar": "a-02.jpg"
+    "avatar": "billie.jpeg"
   }
 ]

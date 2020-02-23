@@ -67,8 +67,8 @@
       <td>{{customer.address}}</td>
 
       <td><input type="update" class="btn btn-success" name="update" id="{{customer.id}}" value="Update"
-          routerLink="/customer/update"></td>
-          
+          (click)="getCustomer(customer)"></td>
+
       <td><input type="delete" class="btn btn-success" name="delete" id="{{customer.id}}" value="Delete"
           (click)="confirmDelete(customer.id)"></td>
     </tr>

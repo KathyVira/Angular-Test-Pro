@@ -3,6 +3,9 @@ import { Contact } from "../../models/contact";
 import { ContactsService } from "../../services/contacts.service";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { map } from "rxjs/operators";
+import { Router } from "@angular/router";
+import { FirebaseService } from "../../services/firebase.service";
+// import { UpdateCustomerComponent } from "../update-customer/update-customer.component";
 
 @Component({
   selector: "app-customers",
@@ -23,8 +26,10 @@ export class CustomersComponent implements OnInit {
   address: string;
 
   constructor(
-    private contactService: ContactsService,
-    private firestore: AngularFirestore
+    // private contactService: ContactsService,
+    private firestore: AngularFirestore,
+    public firebaseService: FirebaseService,
+    public router: Router // public updateCustomerComponent: UpdateCustomerComponent
   ) {}
 
   ngOnInit() {
@@ -32,10 +37,12 @@ export class CustomersComponent implements OnInit {
     this.pageDescription = "This is all of your registers customers";
     this.pageIcon = "fas fa-user";
 
-    this.contactService.getContacts().subscribe((contact: Array<Contact>) => {
-      // console.log(contact);
-      this.contacts = contact;
-    });
+    // this.contactService.getContacts().subscribe((contact: Array<Contact>) => {
+    //   // console.log(contact);
+    //   this.contacts = contact;
+    // });
+
+    // this.firebaseService.getUsers();
 
     this.firestore
       .collection("customers")
@@ -56,24 +63,18 @@ export class CustomersComponent implements OnInit {
         // console.log(this.customers);
       });
   }
-  pressMe() {
-    alert("hello");
-  }
 
   deleteCustomer(id) {
-    // console.log(id);
-
-    this.firestore
-      .collection("customers")
-      .doc(id)
-      .delete();
+    this.firebaseService.deleteUser(id);
+    this.router.navigate(["/customers"]);
   }
-  updateCustomer(id) {
+  updateCustomer(id, customer) {
+    this.firebaseService.updateUser(id, customer);
     // console.log(id);
-    this.firestore
-      .collection("customers")
-      .doc(id)
-      .update({ name: "nnnn", email: "nnnn@gmail.com", address: "nnnntlv" });
+    // this.firestore
+    //   .collection("customers")
+    //   .doc(id)
+    //   .update({ name: "nnnn", email: "nnnn@gmail.com", address: "nnnntlv" });
   }
 
   confirmDelete(id) {
@@ -87,4 +88,11 @@ export class CustomersComponent implements OnInit {
     }
     // document.getElementById("demo").innerHTML = txt;
   }
+  getCustomer(customer) {
+    // console.log(customer.id);
+    this.firebaseService.getUser(customer);
+    // this.router.navigate(["customer/update", customer]);
+  }
 }
+
+// (click)="getcustomer(customer.id,customer)">  routerLink="/customer/update"
