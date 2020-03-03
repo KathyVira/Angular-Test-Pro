@@ -12,15 +12,18 @@ import { UpdateCustomerComponent } from "./components/update-customer/update-cus
 import { AuthGuardGuard } from "../app/guards/auth-guard.guard";
 
 const appRoutes: Routes = [
-  { path: "", redirectTo: "customers", pathMatch: "full" },
+  { path: "", redirectTo: "singin", pathMatch: "full" },
+
   { path: "singin", component: SingInComponent },
   {
     path: "customers",
-    component: CustomersComponent
+    component: CustomersComponent,
+    canActivate: [AuthGuardGuard]
   },
   {
     path: "customers/add",
-    component: CustomersComponent
+    component: CustomersComponent,
+    canActivate: [AuthGuardGuard]
   },
   {
     path: "contacts",
@@ -30,11 +33,13 @@ const appRoutes: Routes = [
   { path: "messeges", component: CustomerMessegesComponent },
   {
     path: "customer/add",
-    component: CustomerAddComponent
+    component: CustomerAddComponent,
+    canActivate: [AuthGuardGuard]
   },
   {
     path: "customer/update",
-    component: UpdateCustomerComponent
+    component: UpdateCustomerComponent,
+    canActivate: [AuthGuardGuard]
   },
 
   { path: "**", component: PageNotFoundComponent }

@@ -1,26 +1,40 @@
-<app-page-header [pageHeader]='pageHeader' [pageDescription]='pageDescription' [pageIcon]='pageIcon'>
+<app-page-header [pageHeader]="pageHeader" [pageDescription]="pageDescription" [pageIcon]="pageIcon">
 </app-page-header>
 
 
-<form #updateCustomerForm='ngForm' (ngSubmit)='onsubmit(updateCustomerForm)' novalidate='novalidate' autocomplete="off">
-  First name:<br>
-  <input type="text" name="name" ngModel required minlength="4" #fnf="ngModel">
-  <br>
-  <span style="color:red" *ngIf='fnf.invalid && fnf.touched'>min of 4 chars</span>
-  <br>
+<!-- https://stackoverflow.com/questions/40882211/adding-default-value-to-text-input-angular-2 -->
+<form #updateCustomerForm="ngForm" (ngSubmit)="onsubmit(updateCustomerForm)" novalidate="novalidate" autocomplete="off">
+  <input hidden name="id" [(ngModel)]="id">
+  First name:<br />
+  <input type="text" name="name" ngModel required minlength="4" #fnf="ngModel" [(ngModel)]="name">
+  <span style="color:red" *ngIf="fnf.invalid && fnf.touched">The field is invalid. Please enter real details</span>
+  <br />
 
-  Email:<br>
-  <input type="text" name="email" ngModel required minlength="4" #ema="ngModel">
-  <span style="color:red" *ngIf='ema.invalid && ema.touched'>min of 4 chars</span>
-  <br><br>
-  Address:<br>
-  <input type="text" name="address" ngModel minlength="4" #addr="ngModel" required>
-  <span style="color:red" *ngIf='addr.invalid && addr.touched'>min of 4 chars</span>
-  <br><br>
-
-
-
-  <input [disabled]="!updateCustomerForm.form.valid" type="submit" name="submit" value="Submit" class="btn btn-primary">
+  Email:<br />
+  <input type="text" name="email" ngModel required minlength="4" #ema="ngModel" [(ngModel)]="email" email>
+  <span style="color:red" *ngIf="ema.invalid && ema.touched">The field is invalid. Please enter real details</span>
+  <br />
+  Address:<br />
+  <input type="text" name="address" ngModel minlength="4" #addr="ngModel" required [(ngModel)]="address">
+  <span style="color:red" *ngIf="addr.invalid && addr.touched">The field is invalid. Please enter real details</span>
+  <br /><br />
 
 
+  <input [disabled]="!updateCustomerForm.form.valid" type="submit" name="submit" value="Submit"
+    class="btn btn-primary" />
 </form>
+
+<div *ngIf="customers">
+  <h1>{{ customers.name }}</h1>
+  <p>{{ customers.email }}</p>
+  <p>{{ customers.address }}</p>
+</div>
+
+<!-- <div style="text-align: center;">
+  Update this new item:
+  {{(item | async)?.name}} <br>
+  <input type="text" #updateName> <br>
+  <button (click)="update(updateName.value)">Change User Name</button>
+
+
+</div> -->

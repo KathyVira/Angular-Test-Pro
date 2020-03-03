@@ -1,9 +1,15 @@
-<app-page-header [pageHeader]='pageHeader' [pageDescription]='pageDescription' [pageIcon]='pageIcon'>
+<app-page-header
+  [pageHeader]="pageHeader"
+  [pageDescription]="pageDescription"
+  [pageIcon]="pageIcon"
+>
 </app-page-header>
 
 <!-- <input type="button" value="press me!" class="btn btn-success" (click)='pressMe()'> -->
-<a href="" routerLink='/customer/add' class='btn btn-success'>+add new customer</a>
-<br><br>
+<a href="" routerLink="/customer/add" class="btn btn-success"
+  >+add new customer</a
+>
+<br /><br />
 <!--
 <div class="row">
   <ul>
@@ -14,7 +20,6 @@
       </li>
   </ul>
 </div>  -->
-
 
 <!-- <div class="container ">
   <div class="row mx-md-n6">
@@ -61,18 +66,33 @@
   </thead>
   <tbody>
     <tr *ngFor="let customer of customers; let x = index">
-      <th scope="row"> {{ x + 1 }}</th>
-      <td>{{customer.name}}</td>
-      <td>{{customer.email}}</td>
-      <td>{{customer.address}}</td>
+      <th scope="row">{{ x + 1 }}</th>
+      <td>{{ customer.name }}</td>
+      <td>{{ customer.email }}</td>
+      <td>{{ customer.address }}</td>
 
-      <td><input type="update" class="btn btn-success" name="update" id="{{customer.id}}" value="Update"
-          (click)="getCustomer(customer)"></td>
+      <td>
+        <input
+          type="update"
+          class="btn btn-success"
+          name="update"
+          id="{{ customer.id }}"
+          value="Update"
+          (click)="getCustomertoUpdate(customer)"
+        />
+      </td>
 
-      <td><input type="delete" class="btn btn-success" name="delete" id="{{customer.id}}" value="Delete"
-          (click)="confirmDelete(customer.id)"></td>
+      <td>
+        <input
+          type="delete"
+          class="btn btn-success"
+          name="delete"
+          id="{{ customer.id }}"
+          value="Delete"
+          (click)="confirmDelete(customer.id)"
+        />
+      </td>
     </tr>
-
   </tbody>
 </table>
 

@@ -18,15 +18,11 @@ export class CustomerAddComponent implements OnInit {
   email: string;
   address: string;
 
-  constructor(
-
-    public firebaseService: FirebaseService,
-    public router: Router
-  ) {}
+  constructor(public firebaseService: FirebaseService, public router: Router) {}
 
   ngOnInit() {
     this.pageHeader = "Customers Add";
-    this.pageDescription = "here you can add new customers";
+    this.pageDescription = "Here you can add new customers";
     this.pageIcon = "fas fa-users";
 
     // this.firestore.collection('customers').add({name:'qqqq',email:'qqq@gmail.com',address:'gggtlv'});

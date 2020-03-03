@@ -16,11 +16,19 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
 import { PageHeaderComponent } from "./components/page-header/page-header.component";
 import { CustomerMessegesComponent } from "./components/customer-messeges/customer-messeges.component";
 import { CustomerAddComponent } from "./components/customer-add/customer-add.component";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { SingInComponent } from "./components/sing-in/sing-in.component";
 import { UpdateCustomerComponent } from "./components/update-customer/update-customer.component";
 import { AuthGuardGuard } from "./guards/auth-guard.guard";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatSliderModule } from "@angular/material/slider";
+
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from "@angular/material/button";
+import { MatSelectModule } from "@angular/material/select";
+import { MatRadioModule } from "@angular/material/radio";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -44,7 +52,17 @@ import { AuthGuardGuard } from "./guards/auth-guard.guard";
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatSliderModule,
+    BrowserModule,
+    FormsModule
   ],
   providers: [AuthGuardGuard],
   bootstrap: [AppComponent]

@@ -7,13 +7,13 @@
 <form #addCustomerForm='ngForm' (ngSubmit)='onsubmit(addCustomerForm)' novalidate='novalidate' autocomplete="off">
   First name:<br>
   <input type="text" name="name" ngModel required minlength="4" #fnf="ngModel">
-  <br>
+
   <span style="color:red" *ngIf='fnf.invalid && fnf.touched'>min of 4 chars</span>
   <br>
 
   Email:<br>
   <input type="text" name="email" ngModel required minlength="4" #ema="ngModel">
-  <span style="color:red" *ngIf='ema.invalid && ema.touched'>min of 4 chars</span>
+  <span style="color:red" *ngIf='ema.invalid && ema.touched' email>min of 4 chars</span>
   <br><br>
   Address:<br>
   <input type="text" name="address" ngModel minlength="4" #addr="ngModel" required>

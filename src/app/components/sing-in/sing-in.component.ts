@@ -21,8 +21,9 @@ export class SingInComponent implements OnInit {
   constructor(private signinService: SigninService, public router: Router) {}
 
   ngOnInit() {
-    this.pageHeader = "Auth";
-    this.pageDescription = "Auth";
+    this.pageHeader = "Authentication";
+    this.pageDescription =
+      "Connection with FireBase DB, email and password you can take from Kathy Vira";
     this.pageIcon = "fas fa-users";
   }
   login(form) {
@@ -30,7 +31,7 @@ export class SingInComponent implements OnInit {
     this.signinService.Login(form);
     this.router.navigate(["customers"]);
   }
-  addUserForm() {
-    console.log("in addUserForm");
-  }
+  // addUserForm() {
+  //   console.log("in addUserForm");
+  // }
 }

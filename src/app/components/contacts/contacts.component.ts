@@ -18,7 +18,8 @@ export class ContactsComponent implements OnInit {
 
   ngOnInit() {
     this.pageHeader = "Contacts";
-    this.pageDescription = "This page shows customers contacts";
+    this.pageDescription =
+      "This page shows customers contacts from my JSON any one can see the data";
     this.pageIcon = "far fa-id-card";
 
     this.contactService.getContacts().subscribe((contact: Array<Contact>) => {

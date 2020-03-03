@@ -16,7 +16,8 @@ export class CustomerMessegesComponent implements OnInit {
 
   ngOnInit() {
     this.pageHeader = "Messages";
-    this.pageDescription = "messages from clients are shown here";
+    this.pageDescription =
+      "Messages from clients from https://jsonplaceholder.typicode.com/comments with HttpClient";
     this.pageIcon = "far fa-id-card";
 
     this.messegesService.getMessages().subscribe((m: any[]) => {

@@ -1,9 +1,16 @@
 import { Component, OnInit } from "@angular/core";
-import { AngularFirestore } from "@angular/fire/firestore";
+import {
+  AngularFirestore,
+  AngularFirestoreDocument
+} from "@angular/fire/firestore";
+import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { FirebaseService } from "../../services/firebase.service";
-import { CustomersComponent } from "../customers/customers.component";
+
+export interface Item {
+  name: string;
+}
 
 @Component({
   selector: "app-update-customer",
@@ -11,10 +18,13 @@ import { CustomersComponent } from "../customers/customers.component";
   styleUrls: ["./update-customer.component.css"]
 })
 export class UpdateCustomerComponent implements OnInit {
+  // https://github.com/angular/angularfire/blob/master/docs/firestore/documents.md
+
+  //
   pageHeader: string;
   pageDescription: string;
   pageIcon: string;
-  customer: Array<any> = [];
+  // customer: Array<any> = [];
 
   id: string;
   name: string;
@@ -25,47 +35,24 @@ export class UpdateCustomerComponent implements OnInit {
     private firestore: AngularFirestore,
     public firebaseService: FirebaseService,
     public router: Router,
-    public customersComponent: CustomersComponent
+    public rourerA: ActivatedRoute
   ) {}
 
-  ngOnInit(customer) {
+  ngOnInit() {
     this.pageHeader = "Customers Update";
-    this.pageDescription = "here you can update your customers";
+    this.pageDescription = "here you can update customers list with FireBase DB";
     this.pageIcon = "fas fa-users";
-    console.log(this.customer);
-    // this.firestore
-    //   .collection("customers")
-    //   .get()
-    //   .pipe(
-    //     map(a => {
-    //       // console.log(a);
-    //       a.forEach(customer => {
-    //         this.customers.push({
-    //           id: customer.id,
-    //           name: customer.data().name,
-    //           email: customer.data().email,
-    //           address: customer.data().address
-    //         });
-    //       });
-    //     })
-    //   )
-    //   .subscribe(res => {
-    //     console.log(this.customers);
-    //   });
-  }
-  onsubmit(id, form) {
-    this.firebaseService.updateUser(id, form.value);
-    console.log(form.value);
-    console.log("updateCustomerForm");
+
+    this.id = this.rourerA.snapshot.paramMap.get("id");
+    this.name = this.rourerA.snapshot.paramMap.get("name");
+
+    this.email = this.rourerA.snapshot.paramMap.get("email");
+    this.address = this.rourerA.snapshot.paramMap.get("address");
   }
 
-  getCustomer(customer) {
-    this.name = customer.name;
-    this.email = customer.email;
-    this.address = customer.address;
-
-    console.log(customer.name + " in update-module");
-    console.log(customer.email + " in update-module");
-    console.log(customer.address + " in update-module");
+  onsubmit(form) {
+    this.firebaseService.updateUser(form.value);
+    this.router.navigate(["/customers"]);
+    // console.log("In updateCustomerForm: ", form.value, form.value.id);
   }
 }

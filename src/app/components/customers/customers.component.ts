@@ -34,15 +34,8 @@ export class CustomersComponent implements OnInit {
 
   ngOnInit() {
     this.pageHeader = "Customers Page";
-    this.pageDescription = "This is all of your registers customers";
+    this.pageDescription = "This is registers customers list with FireBase DB";
     this.pageIcon = "fas fa-user";
-
-    // this.contactService.getContacts().subscribe((contact: Array<Contact>) => {
-    //   // console.log(contact);
-    //   this.contacts = contact;
-    // });
-
-    // this.firebaseService.getUsers();
 
     this.firestore
       .collection("customers")
@@ -68,13 +61,12 @@ export class CustomersComponent implements OnInit {
     this.firebaseService.deleteUser(id);
     this.router.navigate(["/customers"]);
   }
-  updateCustomer(id, customer) {
-    this.firebaseService.updateUser(id, customer);
-    // console.log(id);
-    // this.firestore
-    //   .collection("customers")
-    //   .doc(id)
-    //   .update({ name: "nnnn", email: "nnnn@gmail.com", address: "nnnntlv" });
+
+  getCustomertoUpdate(customer) {
+    // this.firebaseService.getCustomertoUpdatefireBase(customer);
+    // console.log("in getCustomertoUpdate: " + customer.name);
+
+    this.router.navigate(["customer/update", customer]);
   }
 
   confirmDelete(id) {
